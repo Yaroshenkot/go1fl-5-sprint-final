@@ -23,7 +23,7 @@ func (t *Training) Parse(datastring string) (err error) {
 	// TODO: реализовать функцию
 	parts := strings.Split(datastring, ",")
 	if len(parts) != 3 {
-		return errors.New("неверный формат строкиб ожидается: шаги, тип_тренеровки, длительность")
+		return errors.New("неверный формат строки, ожидается: шаги, тип_тренеровки, длительность")
 	}
 	StepsStr := strings.TrimSpace(parts[0])
 	steps, err := strconv.Atoi(StepsStr)
@@ -70,6 +70,6 @@ func (t Training) ActionInfo() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("ошибка расчета калорий: %v", err)
 	}
-	info := fmt.Sprintf("Тип тренировки: %s\n"+"Длительность: %.2f ч.\n"+"Дистанция: %.2f км.\n"+"Скорость: %.2f км/ч\n"+"Сожжено калорий: %.2f", t.TrainingType, t.Duration.Hours(), distance, speed, calories)
+	info := fmt.Sprintf("Тип тренировки: %s\n"+"Длительность: %.2f ч.\n"+"Дистанция: %.2f км.\n"+"Скорость: %.2f км/ч\n"+"Сожгли калорий: %.2f\n", t.TrainingType, t.Duration.Hours(), distance, speed, calories)
 	return info, nil
 }
